@@ -142,34 +142,67 @@ if ( ! function_exists( 'get_image_height_for_schema' ) ) :
 endif;
 
 /**
- * Theme Admin Menu for Slider Settings.
+ * Theme Admin Menu Setup.
+ * Handles creation of top-level admin menu and its submenus.
  */
-if ( ! function_exists( 'persian_store_add_slider_options_page' ) ) {
+if ( ! function_exists( 'persian_store_admin_menu_setup' ) ) {
 	/**
-	 * Adds a menu page for Theme Slider Settings.
+	 * Adds the top-level admin menu "دیجی زاب" and its submenus.
+	 * The slider settings page, previously under "Appearance", will be moved here.
 	 */
-	function persian_store_add_slider_options_page() {
+	function persian_store_admin_menu_setup() {
+		// Remove the old "Slider Settings" page from under "Appearance" (already commented out).
+		// add_theme_page(...);
+
+		// Add new top-level menu "دیجی زاب"
 		add_menu_page(
-			'دیجی زاب',     // Page Title
-			'دیجی زاب',     // Menu Title
-			'manage_options', // Capability - changed to manage_options
-			'digizaab',     // Menu Slug - changed to be more specific
-			'persian_store_render_slider_options_page',           // Callback function
-			'dashicons-store',                                    // Icon URL
-			2               // Position - changed to appear near the top
+			esc_html__( 'دیجی زاب Settings', 'persian-store-theme' ), // Page Title (for the main page of this menu)
+			esc_html__( 'دیجی زاب', 'persian-store-theme' ),          // Menu Title (the text displayed in the admin menu)
+			'edit_theme_options',                                   // Capability required to see this menu
+			'digi_zab_main_options',                                // Menu Slug (unique identifier for this menu)
+			'persian_store_render_digi_zab_main_page',              // Callback function to display the content of this page
+			'dashicons-store',                                     // Icon URL (using a Dashicon class for a store icon)
+			26                                                      // Position (just below Comments, which is 25)
+		);
+
+		// Add "Slider Settings" as a submenu to "دیجی زاب"
+		// Declare a global variable to store the hook suffix for the slider settings page.
+		global $persian_store_slider_settings_page_hook;
+		$persian_store_slider_settings_page_hook = add_submenu_page(
+			'digi_zab_main_options',                                  // Parent Slug (slug of the "دیجی زاب" top-level menu)
+			esc_html__( 'Theme Slider Settings', 'persian-store-theme' ), // Page Title (for browser tab and H1)
+			esc_html__( 'تنظیمات اسلایدر', 'persian-store-theme' ),      // Menu Title (text displayed in the submenu)
+			'edit_theme_options',                                     // Capability
+			'persian_store_slider_options',                           // Menu Slug (reuse the old slug for the slider settings page)
+			'persian_store_render_slider_options_page'                // Callback function (the existing one that renders the slider form)
 		);
 	}
 }
+add_action( 'admin_menu', 'persian_store_admin_menu_setup' );
 
-// Make sure to run this after WordPress has initialized
-function init_admin_menu() {
-    persian_store_add_slider_options_page();
+if ( ! function_exists( 'persian_store_render_digi_zab_main_page' ) ) {
+	/**
+	 * Renders the content for the main "دیجی زاب" admin page.
+	 */
+	function persian_store_render_digi_zab_main_page() {
+		if ( ! current_user_can( 'edit_theme_options' ) ) {
+			return;
+		}
+		?>
+		<div class="wrap">
+			<h1><?php esc_html_e( 'دیجی زاب Options', 'persian-store-theme' ); // Changed text domain ?></h1>
+			<p><?php esc_html_e( 'Welcome to the main settings page for دیجی زاب. Please select a submenu to configure specific options.', 'persian-store-theme' ); ?></p>
+			<?php // In the next step, the slider settings will be a submenu. ?>
+		</div>
+		<?php
+	}
 }
-add_action( 'admin_menu', 'init_admin_menu' );
+
 
 if ( ! function_exists( 'persian_store_render_slider_options_page' ) ) {
 	/**
 	 * Renders the HTML for the Theme Slider Settings page.
+	 * This page will be moved under the "دیجی زاب" menu.
 	 */
 	function persian_store_render_slider_options_page() {
 		// Check user capabilities
@@ -426,9 +459,11 @@ if ( ! function_exists( 'persian_store_render_slide_checkbox_callback' ) ) {
  * @param string $hook_suffix The current admin page hook.
  */
 function persian_store_enqueue_admin_styles( $hook_suffix ) {
+	// Access the global variable holding the hook suffix for our slider settings page.
+	global $persian_store_slider_settings_page_hook;
+
 	// Check if we are on our slider options page.
-	// The hook_suffix for a page added by add_theme_page is 'appearance_page_{menu_slug}'.
-	if ( 'appearance_page_persian_store_slider_options' === $hook_suffix ) {
+	if ( isset($persian_store_slider_settings_page_hook) && $persian_store_slider_settings_page_hook === $hook_suffix ) {
 		wp_enqueue_style(
 			'persian-store-admin-style', // Handle for the stylesheet.
 			get_template_directory_uri() . '/css/admin-style.css', // Path to the CSS file.

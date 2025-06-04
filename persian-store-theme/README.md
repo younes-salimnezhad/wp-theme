@@ -54,7 +54,7 @@ This theme includes basic support and styling for WooCommerce. For full e-commer
 -   **Site Title & Tagline:** Can be set via `Appearance` -> `Customize` -> `Site Identity`.
 -   **Navigation Menu:** Manage menus via `Appearance` -> `Menus`. Ensure your primary menu is created and assigned to the 'Primary Menu' theme location.
 -   **Homepage Slider:**
-    -   To customize the homepage slider, navigate to `Appearance` -> `Slider Settings` in your WordPress admin dashboard.
+    -   To customize the homepage slider, navigate to `دیجی زاب` -> `تنظیمات اسلایدر` (Slider Settings) in your WordPress admin dashboard.
     -   You can configure up to 3 slides. For each slide, you can set:
         -   **Image URL:** The full URL for the slide's background image. It's recommended to upload images to your WordPress Media Library and use the generated URL.
         -   **Heading Text:** The main title for the slide.
