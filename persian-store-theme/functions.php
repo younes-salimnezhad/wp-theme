@@ -146,19 +146,26 @@ endif;
  */
 if ( ! function_exists( 'persian_store_add_slider_options_page' ) ) {
 	/**
-	 * Adds a submenu page under the "Appearance" menu for Theme Slider Settings.
+	 * Adds a menu page for Theme Slider Settings.
 	 */
 	function persian_store_add_slider_options_page() {
-		add_theme_page(
-			esc_html__( 'Theme Slider Settings', 'persian-store-theme' ), // Page Title
-			esc_html__( 'Slider Settings', 'persian-store-theme' ),     // Menu Title
-			'edit_theme_options',                                 // Capability
-			'persian_store_slider_options',                       // Menu Slug
-			'persian_store_render_slider_options_page'            // Callback function to render the page
+		add_menu_page(
+			'دیجی زاب',     // Page Title
+			'دیجی زاب',     // Menu Title
+			'manage_options', // Capability - changed to manage_options
+			'digizaab',     // Menu Slug - changed to be more specific
+			'persian_store_render_slider_options_page',           // Callback function
+			'dashicons-store',                                    // Icon URL
+			2               // Position - changed to appear near the top
 		);
 	}
 }
-add_action( 'admin_menu', 'persian_store_add_slider_options_page' );
+
+// Make sure to run this after WordPress has initialized
+function init_admin_menu() {
+    persian_store_add_slider_options_page();
+}
+add_action( 'admin_menu', 'init_admin_menu' );
 
 if ( ! function_exists( 'persian_store_render_slider_options_page' ) ) {
 	/**
