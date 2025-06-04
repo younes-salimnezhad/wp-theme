@@ -151,6 +151,9 @@ if ( ! function_exists( 'persian_store_admin_menu_setup' ) ) {
 	 * The slider settings page, previously under "Appearance", will be moved here.
 	 */
 	function persian_store_admin_menu_setup() {
+		// Temporary debug notice to confirm this function is called.
+		add_action( 'admin_notices', 'persian_store_debug_admin_notice' );
+
 		// Remove the old "Slider Settings" page from under "Appearance" (already commented out).
 		// add_theme_page(...);
 
@@ -162,7 +165,7 @@ if ( ! function_exists( 'persian_store_admin_menu_setup' ) ) {
 			'digi_zab_main_options',                                // Menu Slug (unique identifier for this menu)
 			'persian_store_render_digi_zab_main_page',              // Callback function to display the content of this page
 			'dashicons-store',                                     // Icon URL (using a Dashicon class for a store icon)
-			26                                                      // Position (just below Comments, which is 25)
+			58.5                                                    // New Position (float value for more specific placement)
 		);
 
 		// Add "Slider Settings" as a submenu to "دیجی زاب"
@@ -193,6 +196,20 @@ if ( ! function_exists( 'persian_store_render_digi_zab_main_page' ) ) {
 			<h1><?php esc_html_e( 'دیجی زاب Options', 'persian-store-theme' ); // Changed text domain ?></h1>
 			<p><?php esc_html_e( 'Welcome to the main settings page for دیجی زاب. Please select a submenu to configure specific options.', 'persian-store-theme' ); ?></p>
 			<?php // In the next step, the slider settings will be a submenu. ?>
+		</div>
+		<?php
+	}
+}
+
+if ( ! function_exists( 'persian_store_debug_admin_notice' ) ) {
+	/**
+	 * Displays a temporary admin notice to confirm menu setup function execution.
+	 * This is for debugging purposes.
+	 */
+	function persian_store_debug_admin_notice() {
+		?>
+		<div class="notice notice-success is-dismissible">
+			<p><?php esc_html_e( 'DEBUG: persian_store_admin_menu_setup() function was called and admin_notices action is working.', 'persian-store-theme' ); ?></p>
 		</div>
 		<?php
 	}
