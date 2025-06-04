@@ -18,32 +18,64 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<?php if ( is_home() && is_front_page() ) : // Display homepage sections only on the static front page or main blog page. ?>
-				<div class="homepage-slider">
-					<div class="slide active-slide">
-						<div class="slide-content">
-							<h2><?php esc_html_e( 'Slide 1 - Special Offer!', 'persian-store-theme' ); ?></h2>
-							<p><?php esc_html_e( 'Check out our latest products.', 'persian-store-theme' ); ?></p>
-							<a href="#" class="slider-button"><?php esc_html_e( 'Shop Now', 'persian-store-theme' ); ?></a>
+			<?php
+			if ( is_home() && is_front_page() ) : // Display homepage sections only on the static front page or main blog page.
+				$slider_options = get_option( 'persian_store_slider_settings', array() );
+				$active_slides  = array();
+
+				if ( ! empty( $slider_options ) ) {
+					for ( $i = 0; $i < 3; $i++ ) { // Assuming 3 slides, indexed 0, 1, 2
+						if ( ! empty( $slider_options[ 'slide_' . $i . '_is_active' ] ) && '1' === $slider_options[ 'slide_' . $i . '_is_active' ] && ! empty( $slider_options[ 'slide_' . $i . '_image_url' ] ) ) {
+							$active_slides[] = array(
+								'image_url'   => $slider_options[ 'slide_' . $i . '_image_url' ],
+								'heading'     => ! empty( $slider_options[ 'slide_' . $i . '_heading' ] ) ? $slider_options[ 'slide_' . $i . '_heading' ] : '',
+								'description' => ! empty( $slider_options[ 'slide_' . $i . '_description' ] ) ? $slider_options[ 'slide_' . $i . '_description' ] : '',
+								'link_url'    => ! empty( $slider_options[ 'slide_' . $i . '_link_url' ] ) ? $slider_options[ 'slide_' . $i . '_link_url' ] : '',
+							);
+						}
+					}
+				}
+
+				if ( ! empty( $active_slides ) ) :
+					?>
+				<section class="homepage-slider-section">
+					<div class="homepage-slider">
+						<?php
+						foreach ( $active_slides as $index => $slide ) :
+							$slide_class = 'slide';
+							if ( 0 === $index ) {
+								$slide_class .= ' active-slide';
+							}
+							?>
+						<div class="<?php echo esc_attr( $slide_class ); ?>" style="background-image: url('<?php echo esc_url( $slide['image_url'] ); ?>');">
+							<div class="slide-content-wrapper"> <?php // Added a wrapper for better content styling ?>
+								<div class="slide-content">
+									<?php if ( ! empty( $slide['heading'] ) ) : ?>
+										<h2 class="slide-title"><?php echo esc_html( $slide['heading'] ); ?></h2>
+									<?php endif; ?>
+									<?php if ( ! empty( $slide['description'] ) ) : ?>
+										<p class="slide-description"><?php echo wp_kses_post( $slide['description'] ); // Allows basic HTML, use esc_html() for plain text. ?></p>
+									<?php endif; ?>
+									<?php if ( ! empty( $slide['link_url'] ) ) : ?>
+										<a href="<?php echo esc_url( $slide['link_url'] ); ?>" class="button slide-button"><?php esc_html_e( 'Learn More', 'persian-store-theme' ); ?></a>
+									<?php endif; ?>
+								</div>
+							</div>
 						</div>
+						<?php endforeach; ?>
+
+						<?php if ( count( $active_slides ) > 1 ) : ?>
+						<button class="slider-nav slider-prev" aria-label="<?php esc_attr_e( 'Previous Slide', 'persian-store-theme' ); ?>">&#10094;</button>
+						<button class="slider-nav slider-next" aria-label="<?php esc_attr_e( 'Next Slide', 'persian-store-theme' ); ?>">&#10095;</button>
+						<?php endif; ?>
 					</div>
-					<div class="slide">
-						<div class="slide-content">
-							<h2><?php esc_html_e( 'Slide 2 - New Arrivals', 'persian-store-theme' ); ?></h2>
-							<p><?php esc_html_e( 'Fresh items in stock.', 'persian-store-theme' ); ?></p>
-							<a href="#" class="slider-button"><?php esc_html_e( 'Discover More', 'persian-store-theme' ); ?></a>
-						</div>
-					</div>
-					<div class="slide">
-						<div class="slide-content">
-							<h2><?php esc_html_e( 'Slide 3 - Seasonal Sale', 'persian-store-theme' ); ?></h2>
-							<p><?php esc_html_e( 'Don\'t miss out on great deals.', 'persian-store-theme' ); ?></p>
-							<a href="#" class="slider-button"><?php esc_html_e( 'View Sale', 'persian-store-theme' ); ?></a>
-						</div>
-					</div>
-					<a href="#" class="slider-prev" aria-label="<?php esc_attr_e( 'Previous slide', 'persian-store-theme' ); ?>">&#10094;</a>
-					<a href="#" class="slider-next" aria-label="<?php esc_attr_e( 'Next slide', 'persian-store-theme' ); ?>">&#10095;</a>
-				</div>
+				</section>
+					<?php
+				/* else : // Optional: Fallback content if no active slides
+					echo '<p>' . esc_html__( 'Slider is not configured yet.', 'persian-store-theme' ) . '</p>';
+				*/
+				endif; // End if ( ! empty( $active_slides ) )
+				?>
 
 				<section class="product-categories-section">
 					<h2 class="section-title"><?php esc_html_e( 'Shop by Category', 'persian-store-theme' ); ?></h2>

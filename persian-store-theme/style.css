@@ -1,7 +1,7 @@
 /*
 Theme Name: Persian Store Theme
 Author: Your Name
-Description: A basic WordPress theme for an online store.
+Description: A basic WordPress theme for detergent and health products stores.
 Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -57,24 +57,24 @@ body {
 	font-family: 'Vazirmatn', sans-serif;
 	direction: rtl;
 	text-align: right;
-	font-size: 16px;
-	line-height: 1.7;
+	font-size: 16px; /* Base font size */
+	line-height: 1.7; /* Improved line height for Farsi */
 	color: #333;
-	background-color: #FFFFFF;
-	margin: 0;
+	background-color: #FFFFFF; /* Default background */
+	margin: 0; /* WordPress themes typically reset this */
 }
 
 h1, h2, h3, h4, h5, h6,
 button, input, select, textarea,
 .button, .button.alt, .add-to-cart-button, .slider-button,
 .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
-.woocommerce #respond input#submit {
+.woocommerce #respond input#submit { /* Added #respond input#submit for WC comments */
 	font-family: 'Vazirmatn', sans-serif;
 }
 
 /* --- 1.2 Base Elements (body, links, headings etc.) --- */
 a {
-	color: #007bff;
+	color: #007bff; /* Common link color */
 	text-decoration: none;
 }
 
@@ -100,7 +100,6 @@ ul, ol {
     margin-bottom: 0.5em; /* Spacing for individual error items */
 }
 
-
 /* --- 1.3 Utilities --- */
 .screen-reader-text {
 	border: 0;
@@ -121,15 +120,15 @@ ul, ol {
 .site-header {
 	background-color: #ADD8E6; /* Light Blue */
 	padding: 15px 20px;
-	color: #FFFFFF;
+	color: #FFFFFF; /* Default text color for header */
 }
 
 .site-header a {
-	color: #FFFFFF;
+	color: #FFFFFF; /* Default link color in header */
 }
 
 .site-header a:hover {
-	color: #f0f0f0;
+	color: #f0f0f0; /* Lighter white on hover */
 	text-decoration: none;
 }
 
@@ -153,7 +152,7 @@ ul, ol {
 .site-branding .site-description {
 	font-size: 0.85em;
 	margin: 0 10px 0 0; /* RTL: margin on the right of title */
-	color: #f0f8ff;
+	color: #f0f8ff; /* Lighter color for description */
 }
 
 /* --- 2.2 Main Navigation (Desktop & Mobile Toggle) --- */
@@ -164,11 +163,11 @@ ul, ol {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	display: flex;
+	display: flex; /* For desktop menu */
 }
 
 .main-navigation ul li {
-	position: relative;
+	position: relative; /* For dropdown positioning */
 	margin-left: 20px; /* RTL: Spacing between menu items on the left */
 }
 .main-navigation ul li:last-child {
@@ -182,33 +181,34 @@ ul, ol {
 }
 
 .main-navigation ul li:hover > a {
-	background-color: #40E0D0;
+	background-color: #40E0D0; /* Turquoise for hover */
 	color: #FFFFFF;
 }
 
+/* Dropdown Styling */
 .main-navigation ul ul { /* Sub-menu */
 	display: none;
 	position: absolute;
-	top: 100%;
-	right: 0; /* RTL */
-	left: auto;
-	background-color: #90EE90;
+	top: 100%; /* Position below parent */
+	right: 0; /* RTL: Position to the right */
+	left: auto; /* Reset left positioning */
+	background-color: #90EE90; /* Soft Green for dropdown background */
 	z-index: 1000;
-	min-width: 200px;
-	padding: 0;
-	flex-direction: column;
-	border: 1px solid #ADD8E6;
+	min-width: 200px; /* Width of dropdown */
+	padding: 0; /* Reset padding */
+	flex-direction: column; /* Stack sub-menu items vertically (for JS toggle) */
+	border: 1px solid #ADD8E6; /* Add a border for better visibility */
 }
 
-.main-navigation ul ul ul { /* Third level */
-	right: 100%;
+.main-navigation ul ul ul { /* Third level and deeper */
+	right: 100%; /* Position to the right of the parent */
 	left: auto;
 	top: -1px; /* Align with parent item border */
 }
 
 .main-navigation ul ul li {
-	margin-left: 0;
-	border-bottom: 1px solid #ADD8E6;
+	margin-left: 0; /* No left margin for dropdown items */
+	border-bottom: 1px solid #ADD8E6; /* Light blue separator */
 }
 
 .main-navigation ul ul li:last-child {
@@ -217,21 +217,21 @@ ul, ol {
 
 .main-navigation ul ul li a {
 	padding: 10px 15px;
-	color: #333;
+	color: #333; /* Darker text for dropdown items */
 }
 
 .main-navigation ul ul li a:hover {
-	background-color: #40E0D0;
+	background-color: #40E0D0; /* Turquoise */
 	color: #FFFFFF;
 }
 
-.main-navigation ul li:hover > ul {
+.main-navigation ul li:hover > ul { /* Show dropdown on hover (desktop) */
 	display: block;
 }
 
-.menu-toggle {
+.menu-toggle { /* Hamburger button for mobile */
 	display: none; /* Hidden by default, shown in responsive styles */
-	background-color: #40E0D0;
+	background-color: #40E0D0; /* Turquoise */
 	color: #FFFFFF;
 	padding: 8px 12px;
 	border: none;
@@ -242,7 +242,7 @@ ul, ol {
 
 /* --- 2.3 Header Search --- */
 .header-search {
-	margin-right: auto; /* Push search to the left in RTL header flex */
+	margin-right: auto; /* Push search to the left in RTL header flex container */
 }
 .header-search .search-form {
 	display: flex;
@@ -251,33 +251,33 @@ ul, ol {
 .header-search .search-field {
 	padding: 8px;
 	border: 1px solid #FFFFFF;
-	border-left: none; /* RTL */
-	border-radius: 0 3px 3px 0; /* RTL */
+	border-left: none; /* RTL: button is on the left */
+	border-radius: 0 3px 3px 0; /* Adjust border radius for RTL */
 }
 
 .header-search .search-submit {
 	padding: 8px 12px;
-	background-color: #40E0D0;
+	background-color: #40E0D0; /* Turquoise */
 	border: 1px solid #40E0D0;
 	color: white;
 	cursor: pointer;
-	border-radius: 3px 0 0 3px; /* RTL */
+	border-radius: 3px 0 0 3px; /* Adjust border radius for RTL */
 }
 
 .header-search .search-submit:hover {
-	background-color: #35c4b5;
+	background-color: #35c4b5; /* Slightly darker turquoise */
 }
 
 /* --- 2.4 Header Cart & Auth --- */
 .header-cart, .header-auth {
 	display: flex;
 	align-items: center;
-	margin-right: 15px; /* RTL */
+	margin-right: 15px; /* RTL: space to the right */
 }
 
 .header-cart a, .header-auth a {
 	padding: 10px;
-	margin-left: 10px; /* RTL */
+	margin-left: 10px; /* RTL: space between auth links */
 }
 .header-auth a:last-child {
 	margin-left: 0;
@@ -288,13 +288,13 @@ ul, ol {
 --------------------------------------------------------------*/
 .site-content {
 	max-width: 1200px;
-	margin: 20px auto;
-	padding: 0 20px;
+	margin: 20px auto; /* Vertical and horizontal centering */
+	padding: 0 20px; /* Horizontal padding */
 }
 
 /* --- 3.1 Homepage Sections General --- */
 .product-categories-section .section-title,
-.product-section .section-title {
+.product-section .section-title { /* Common title styling for homepage sections */
 	text-align: center;
 	font-size: 2em;
 	color: #333;
@@ -303,68 +303,79 @@ ul, ol {
 }
 
 /* --- 3.2 Homepage Slider --- */
+.homepage-slider-section { /* New wrapper section */
+	margin-bottom: 20px; /* Space below the slider section */
+	position: relative; /* For absolute positioning of nav buttons if they were outside .homepage-slider */
+}
+
 .homepage-slider {
 	position: relative;
 	width: 100%;
-	height: 400px;
+	height: 400px; /* Default height */
 	overflow: hidden;
-	background-color: #f0f8ff;
-	margin-bottom: 20px;
+	background-color: #f0f8ff; /* Fallback if no slides are active or images don't load */
 }
 
 .homepage-slider .slide {
 	position: absolute;
 	top: 0;
-	right: 0; /* RTL */
+	right: 0; /* RTL: slides typically animate from right or are positioned based on this */
 	width: 100%;
 	height: 100%;
-	display: none;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
+	display: none; /* Hidden by default, active by .active-slide */
 	background-size: cover;
-	background-position: center;
+	background-position: center center;
 }
 
 .homepage-slider .slide.active-slide {
+	display: block; /* Or flex if using flex to center .slide-content-wrapper */
+}
+
+.homepage-slider .slide-content-wrapper { /* New wrapper */
 	display: flex;
+	align-items: center; /* Vertically center */
+	justify-content: center; /* Horizontally center */
+	height: 100%;
+	width: 100%;
+	text-align: center; /* Ensure text within is centered */
 }
 
 .homepage-slider .slide-content {
-	background-color: rgba(255, 255, 255, 0.7);
-	padding: 20px 40px;
+	background-color: rgba(0, 0, 0, 0.5); /* Darker semi-transparent background for better contrast */
+	padding: 30px 50px;
 	border-radius: 5px;
-	color: #333;
+	color: #FFFFFF; /* White text for dark background */
+	max-width: 80%; /* Prevent content from becoming too wide */
 }
 
-.homepage-slider .slide-content h2 {
+.homepage-slider .slide-content .slide-title {
 	font-size: 2.5em;
 	margin-top: 0;
 	margin-bottom: 10px;
-	color: #005073;
+	color: #005073; /* A darker shade of blue */
 }
 
-.homepage-slider .slide-content p {
+.homepage-slider .slide-content .slide-description { /* More specific selector */
 	font-size: 1.2em;
 	margin-bottom: 20px;
 }
 
-.homepage-slider .slider-button {
+.homepage-slider .slide-button { /* Inherits .button from WC, but can be specific */
 	display: inline-block;
-	background-color: #40E0D0;
+	background-color: #40E0D0; /* Turquoise */
 	color: #FFFFFF;
 	padding: 10px 20px;
 	text-decoration: none;
 	border-radius: 3px;
 	font-weight: bold;
 }
-.homepage-slider .slider-button:hover {
-	background-color: #35c4b5;
-	text-decoration: none; /* Ensure no underline on hover if 'a' tag */
+.homepage-slider .slide-button:hover {
+	background-color: #35c4b5; /* Darker Turquoise */
+	text-decoration: none;
 }
 
-.homepage-slider .slider-prev, /* RTL: This is visually "Next" */
-.homepage-slider .slider-next { /* RTL: This is visually "Previous" */
+/* Slider Navigation Buttons */
+.homepage-slider .slider-nav { /* Common class for prev/next */
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -375,30 +386,29 @@ ul, ol {
 	border: none;
 	cursor: pointer;
 	font-size: 20px;
-	z-index: 10;
+	z-index: 10; /* Ensure they are above slides */
 }
-.homepage-slider .slider-prev:hover,
-.homepage-slider .slider-next:hover {
+.homepage-slider .slider-nav:hover {
 	background-color: rgba(0, 0, 0, 0.6);
 }
 
-.homepage-slider .slider-prev { /* RTL: Visually "Next", on the left */
+.homepage-slider .slider-prev { /* RTL: This is visually "Next", so on the left */
 	left: 10px;
 	right: auto;
-	border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px; /* Rounded corners for left button */
 }
 
-.homepage-slider .slider-next { /* RTL: Visually "Previous", on the right */
+.homepage-slider .slider-next { /* RTL: This is visually "Previous", so on the right */
 	right: 10px;
 	left: auto;
-	border-radius: 0 3px 3px 0;
+	border-radius: 0 3px 3px 0; /* Rounded corners for right button */
 }
 
 /* --- 3.3 Product Categories Section --- */
 .product-categories-section {
 	padding: 40px 20px;
 	margin-bottom: 20px;
-	background-color: #FFFFFF;
+	background-color: #FFFFFF; /* White background for this section */
 }
 
 .categories-container {
@@ -410,11 +420,11 @@ ul, ol {
 }
 
 .category-item {
-	border: 1px solid #e0e0e0;
+	border: 1px solid #e0e0e0; /* Light grey border */
 	border-radius: 5px;
 	text-align: right; /* RTL */
 	padding: 15px;
-	background-color: #f9f9f9;
+	background-color: #f9f9f9; /* Very light grey background for card */
 	box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
@@ -437,7 +447,7 @@ ul, ol {
 
 .category-item h3 {
 	font-size: 1.3em;
-	color: #00796b;
+	color: #00796b; /* A shade of turquoise/green */
 	margin-top: 0;
 	margin-bottom: 0;
 }
@@ -446,10 +456,10 @@ ul, ol {
 .product-section {
 	padding: 30px 20px;
 	margin-bottom: 20px;
-	background-color: #f9f9f9;
+	background-color: #f9f9f9; /* Slightly off-white for section background */
 }
 
-.products-container {
+.products-container { /* Used for homepage product sections */
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 	gap: 20px;
@@ -457,7 +467,7 @@ ul, ol {
 	margin: 0 auto;
 }
 
-.product-item {
+.product-item { /* Styling for individual product cards on homepage */
 	background-color: #FFFFFF;
 	border: 1px solid #e0e0e0;
 	border-radius: 5px;
@@ -467,7 +477,7 @@ ul, ol {
 	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-between; /* Pushes button to bottom */
 }
 .product-item:hover {
 	transform: translateY(-5px);
@@ -491,41 +501,26 @@ ul, ol {
 	color: #333;
 	margin-top: 0;
 	margin-bottom: 10px;
-	min-height: 2.2em;
+	min-height: 2.2em; /* Ensure space for two lines of text */
 }
 
 .product-item .product-price {
 	font-size: 1.2em;
-	color: #00796b;
+	color: #00796b; /* Turquoise/Green for price */
 	font-weight: bold;
 	margin-bottom: 15px;
 }
 
 .product-item .button,
-.product-item .add-to-cart-button { /* Shared with WC buttons in section 5 */
-	display: inline-block;
-	background-color: #40E0D0;
-	color: #FFFFFF;
-	padding: 10px 15px;
-	text-decoration: none;
-	border-radius: 3px;
-	font-weight: bold;
-	border: none;
-	cursor: pointer;
-	text-transform: uppercase;
-	font-size: 0.9em;
-	transition: background-color 0.2s ease-in-out;
-}
-.product-item .button:hover,
-.product-item .add-to-cart-button:hover {
-	background-color: #35c4b5;
-	text-decoration: none;
+.product-item .add-to-cart-button {
+	/* Uses general button styles from section 5.2 */
+	padding: 10px 15px; /* Specific padding if needed */
 }
 
 /* --- 3.5 Posts & Pages --- */
 article.post,
 article.page {
-	margin-bottom: 2.5em;
+	margin-bottom: 2.5em; /* Space between posts/pages */
 }
 
 .entry-header {
@@ -541,16 +536,16 @@ h2.entry-title { /* For H2 on archives/index */
 	font-size: 1.8em;
 }
 h2.entry-title a {
-	color: inherit; /* Should take general link color or be overridden */
+	color: inherit;
 	text-decoration: none;
 }
 h2.entry-title a:hover {
-	color: #007bff;
+	color: #007bff; /* Link hover color */
 }
 
 .entry-meta {
 	font-size: 0.85em;
-	color: #757575;
+	color: #757575; /* Grey for meta */
 	margin-bottom: 1em;
 }
 .entry-meta a {
@@ -591,7 +586,7 @@ h2.entry-title a:hover {
 }
 .entry-content ul, .entry-content ol { /* Content lists might need more specific indentation */
 	margin-bottom: 1.5em;
-	margin-right: 1.5em;
+	margin-right: 1.5em; /* RTL */
 }
 .entry-content li {
 	margin-bottom: 0.5em;
@@ -626,7 +621,7 @@ h2.entry-title a:hover {
 .entry-footer .cat-links,
 .entry-footer .tags-links,
 .entry-footer .edit-link {
-	display: inline-block;
+	display: inline-block; /* Or block if you want them on new lines */
 	margin-left: 1.5em; /* RTL */
 }
 .entry-footer .cat-links:first-child,
@@ -646,9 +641,7 @@ h2.entry-title a:hover {
 	font-size: 1.5em;
 	margin-bottom: 1em;
 }
-.comment-list {
-	list-style: none;
-	padding: 0;
+.comment-list { /* Already reset global ul styles */
 	margin: 0 0 2em 0;
 }
 .comment-list li.comment { /* Using li.comment for specificity */
@@ -689,9 +682,8 @@ h2.entry-title a:hover {
 	box-sizing: border-box;
 	margin-bottom: 1em;
 }
-.comment-form .form-submit input[type="submit"] {
-	/* Uses general button styles from section 5.2 */
-}
+/* .comment-form .form-submit input[type="submit"] inherits from main button styles */
+
 
 /* --- 3.7 Pagination / Navigation --- */
 .posts-navigation,
@@ -708,7 +700,7 @@ h2.entry-title a:hover {
 .post-navigation .nav-previous a,
 .posts-navigation .nav-next a,
 .post-navigation .nav-next a {
-	display: block; /* Ensure proper spacing */
+	display: block;
 }
 
 .post-navigation .nav-previous {
@@ -730,30 +722,32 @@ h2.entry-title a:hover {
 4.0 Footer
 --------------------------------------------------------------*/
 .site-footer {
-	background-color: #004050;
-	color: #e0f2f1;
-	padding: 40px 20px 0;
+	background-color: #004050; /* Darker, desaturated blue/teal */
+	color: #e0f2f1; /* Light cyan/teal for text, good contrast */
+	padding: 40px 20px 0; /* Padding at top/sides, bottom padding will be on site-info */
 }
 
 .site-footer a {
-	color: #80cbc4;
+	color: #80cbc4; /* Lighter teal for links */
 }
 .site-footer a:hover {
-	color: #FFFFFF;
+	color: #FFFFFF; /* White on hover */
 	text-decoration: underline;
 }
 
 /* --- 4.1 Footer Widgets Area --- */
 .footer-widgets-container {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-	gap: 30px;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive 4 columns */
+	gap: 30px; /* Gap between columns */
 	max-width: 1200px;
-	margin: 0 auto 30px auto;
+	margin: 0 auto 30px auto; /* Margin at bottom */
 }
 
+/* .footer-column can have specific padding if needed */
+
 .footer-column h4 {
-	color: #FFFFFF;
+	color: #FFFFFF; /* White for headings */
 	font-size: 1.2em;
 	margin-top: 0;
 	margin-bottom: 15px;
@@ -764,7 +758,7 @@ h2.entry-title a:hover {
 	line-height: 1.6;
 }
 
-.footer-column ul { /* Already reset global indentation */
+.footer-column ul { /* Already reset global ul styles */
 	list-style: none;
 	padding: 0;
 }
@@ -774,25 +768,25 @@ h2.entry-title a:hover {
 
 .footer-column .newsletter-form {
 	display: flex;
-	flex-direction: column;
+	flex-direction: column; /* Stack input and button */
 }
 .footer-column .newsletter-form input[type="email"] {
 	padding: 10px;
 	margin-bottom: 10px;
-	border: 1px solid #80cbc4;
+	border: 1px solid #80cbc4; /* Light teal border */
 	border-radius: 3px;
-	background-color: #005060;
+	background-color: #005060; /* Slightly lighter than footer bg for input */
 	color: #FFFFFF;
 }
 .footer-column .newsletter-form input[type="email"]::placeholder {
-	color: #b2dfdb;
+	color: #b2dfdb; /* Lighter placeholder text */
 }
 .footer-column .newsletter-form .button { /* Uses general button styles */
 	padding: 10px 15px; /* Specific padding if needed */
 }
 
 .footer-column .social-media-links a {
-	display: block;
+	display: block; /* Or inline-block with margin */
 	margin-bottom: 8px;
 }
 
@@ -801,12 +795,12 @@ h2.entry-title a:hover {
 	text-align: center;
 	padding: 20px 0;
 	margin-top: 30px;
-	border-top: 1px solid #005060;
-	color: #b2dfdb;
+	border-top: 1px solid #005060; /* Separator line, slightly lighter than footer bg */
+	color: #b2dfdb; /* Lighter text for copyright */
 	font-size: 0.9em;
 }
 .site-info a {
-	color: #80cbc4;
+	color: #80cbc4; /* Light teal for links in copyright */
 	font-weight: bold;
 }
 .site-info a:hover {
@@ -822,24 +816,24 @@ h2.entry-title a:hover {
 .woocommerce-info,
 .woocommerce-error,
 .woocommerce-noreviews,
-p.no-comments {
+p.no-comments { /* WordPress no comments p tag has similar use */
 	padding: 15px 20px;
 	margin-bottom: 20px;
 	border-radius: 3px;
 	border: 1px solid transparent;
 }
 .woocommerce-message {
-	background-color: #f1f8e9;
+	background-color: #f1f8e9; /* Light Green */
 	border-color: #c8e6c9;
 	color: #388e3c;
 }
 .woocommerce-info {
-	background-color: #e3f2fd;
+	background-color: #e3f2fd; /* Light Blue */
 	border-color: #bbdefb;
 	color: #1976d2;
 }
 .woocommerce-error {
-	background-color: #ffebee;
+	background-color: #ffebee; /* Light Red */
 	border-color: #ffcdd2;
 	color: #c62828;
 }
@@ -856,8 +850,8 @@ p.no-comments {
 .woocommerce a.button.checkout,
 .woocommerce a.button.add_to_cart_button,
 .woocommerce .button { /* General WC button class */
-	background-color: #40E0D0;
-	color: #FFFFFF !important;
+	background-color: #40E0D0; /* Turquoise */
+	color: #FFFFFF !important; /* Important to override WC default */
 	padding: 10px 20px;
 	text-decoration: none;
 	border-radius: 3px;
@@ -867,9 +861,9 @@ p.no-comments {
 	text-transform: uppercase;
 	font-size: 0.95em;
 	transition: background-color 0.2s ease-in-out;
-	line-height: normal;
+	line-height: normal; /* Ensure consistent line height */
 	display: inline-block;
-	margin-bottom: 5px;
+	margin-bottom: 5px; /* Space if buttons wrap */
 	text-align: center; /* Ensure text is centered */
 }
 .woocommerce a.button:hover,
@@ -883,21 +877,21 @@ p.no-comments {
 .woocommerce a.button.checkout:hover,
 .woocommerce a.button.add_to_cart_button:hover,
 .woocommerce .button:hover {
-	background-color: #35c4b5;
+	background-color: #35c4b5; /* Darker Turquoise */
 	color: #FFFFFF !important;
 	text-decoration: none;
 }
 
 /* --- 5.3 Product Grid / List (Archives) --- */
-.woocommerce ul.products {
+.woocommerce ul.products { /* Applied to product archive pages */
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 	gap: 20px;
 	list-style: none;
 	padding: 0;
-	margin: 0 0 20px 0;
+	margin: 0 0 20px 0; /* Reset WC margins */
 }
-.woocommerce ul.products li.product {
+.woocommerce ul.products li.product { /* Individual product item in the grid */
 	background-color: #FFFFFF;
 	border: 1px solid #e0e0e0;
 	border-radius: 5px;
@@ -915,13 +909,13 @@ p.no-comments {
 	font-size: 1.1em;
 	color: #333;
 	margin-bottom: 10px;
-	min-height: 2.2em;
+	min-height: 2.2em; /* Room for two lines */
 }
 .woocommerce ul.products li.product .price {
 	font-size: 1.2em;
-	color: #00796b;
+	color: #00796b; /* Turquoise/Green for price */
 	font-weight: bold;
-	display: block;
+	display: block; /* Make price block to take full width */
 	margin-bottom: 15px;
 }
 .woocommerce ul.products li.product img {
@@ -938,39 +932,39 @@ p.no-comments {
 	height: 1.5em;
 	line-height: 1.5em;
 	font-size: 1em;
-	width: 5.4em; /* (1.08 * 5) */
-	font-family: "star";
-	letter-spacing: 0.1em;
+	width: 5.4em; /* (1.08em per star * 5 stars) */
+	font-family: "star"; /* WooCommerce Star Font */
+	letter-spacing: 0.1em; /* Spacing between stars */
 }
-.woocommerce .star-rating::before {
-	content: "\\73\\73\\73\\73\\73"; /* Five empty stars */
-	color: #d3ced2;
+.woocommerce .star-rating::before { /* Empty stars */
+	content: "\\73\\73\\73\\73\\73";
+	color: #d3ced2; /* Light grey for empty stars */
 	float: right; /* RTL */
 	top: 0;
 	left: 0; /* Visual alignment for stars */
 	position: absolute;
 }
-.woocommerce .star-rating span {
+.woocommerce .star-rating span { /* Filled stars container */
 	overflow: hidden;
 	float: right; /* RTL */
 	top: 0;
 	left: 0; /* Visual alignment for stars */
 	position: absolute;
-	padding-top: 1.5em;
+	padding-top: 1.5em; /* Match height, for accessibility */
 }
-.woocommerce .star-rating span::before {
-	content: "\\53\\53\\53\\53\\53"; /* Five filled stars */
+.woocommerce .star-rating span::before { /* Filled stars */
+	content: "\\53\\53\\53\\53\\53";
 	top: 0;
 	position: absolute;
 	left: 0;
-	color: #FFD700; /* Gold */
+	color: #FFD700; /* Gold for filled stars */
 }
 
 /* --- 5.5 Forms (Checkout, My Account etc.) --- */
 .woocommerce form .form-row,
 .woocommerce form p,
 .woocommerce form div.form-row { /* More specific for some WC forms */
-	margin-bottom: 15px;
+	margin-bottom: 15px; /* Consistent spacing */
 }
 .woocommerce form .form-row label,
 .woocommerce form p label {
@@ -987,12 +981,12 @@ p.no-comments {
 .woocommerce form input[type="search"],
 .woocommerce form select,
 .woocommerce form textarea,
-.woocommerce .input-text {
+.woocommerce .input-text { /* Generic WC input class */
 	width: 100%;
 	padding: 10px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
-	box-sizing: border-box;
+	box-sizing: border-box; /* Important for 100% width with padding */
 	font-size: 1em;
 	background-color: #fdfdfd;
 }
@@ -1005,18 +999,19 @@ p.no-comments {
 .woocommerce form select:focus,
 .woocommerce form textarea:focus,
 .woocommerce .input-text:focus {
-	border-color: #40E0D0;
+	border-color: #40E0D0; /* Turquoise focus */
 	box-shadow: 0 0 5px rgba(64, 224, 208, 0.5);
 	outline: none;
 }
-.woocommerce select {
-	height: auto;
+.woocommerce select { /* Specific to select dropdowns */
+	height: auto; /* Reset if needed */
 	line-height: normal;
 }
-.woocommerce .quantity .qty {
-	width: 4em;
+.woocommerce .quantity .qty { /* Quantity input fields */
+	width: 4em; /* Adjust as needed */
 	text-align: center;
 }
+/* Payment methods styling */
 .woocommerce-checkout #payment ul.payment_methods li {
 	padding: 10px 15px;
 	border-bottom: 1px solid #e0e0e0;
@@ -1041,16 +1036,16 @@ p.no-comments {
 /* --- 6.1 General Breakpoints & Typography --- */
 @media (max-width: 768px) {
 	body {
-		font-size: 95%;
+		font-size: 95%; /* Slightly reduce base font size */
 	}
 	.section-title,
-	.product-categories-section .section-title, /* Ensure these are targeted */
+	.product-categories-section .section-title, /* Ensure responsive titles are targeted */
 	.product-section .section-title {
-		font-size: 1.8em;
+		font-size: 1.8em; /* Adjust section titles */
 	}
 	.product-section,
 	.product-categories-section {
-		padding: 20px 15px;
+		padding: 20px 15px; /* Reduce padding for sections */
 	}
 	.site-content {
 		margin: 15px auto;
@@ -1070,10 +1065,10 @@ p.no-comments {
 }
 
 /* --- 6.2 Header Responsive --- */
-@media (max-width: 1024px) {
+@media (max-width: 1024px) { /* Tablet landscape and smaller */
 	.header-container {
 		flex-wrap: wrap;
-		justify-content: space-between;
+		justify-content: space-between; /* Keep logo and (cart/auth or toggle) at ends */
 	}
 	.site-branding {
 		margin-bottom: 10px;
@@ -1084,89 +1079,89 @@ p.no-comments {
         margin-right: 0; /* Center description under title */
     }
 	.main-navigation {
-		order: 3;
+		order: 3; /* Nav below other items if wrapped */
 		width: 100%;
 		margin-top: 10px;
-		margin-right: 0;
+		margin-right: 0; /* Full width, no margin */
 	}
 	.header-search {
-		order: 2;
-		flex-grow: 1;
+		order: 2; /* Search can be beside cart/auth or toggle */
+		flex-grow: 1; /* Allow search to take available space */
 		margin-left: 10px; /* RTL: space between search and cart/auth */
 		margin-right: 0;
-		margin-bottom: 10px;
+		margin-bottom: 10px; /* Space if it wraps to its own line */
 	}
 	.header-cart, .header-auth {
-		order: 1;
+		order: 1; /* Keep cart/auth towards the end (visually right in LTR) */
 		margin-right: 0; /* Remove default right margin */
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* Tablet portrait and smaller */
 	.site-header {
 		padding: 10px 15px;
 	}
 	.header-container {
-		position: relative;
+		position: relative; /* For absolute positioning of menu toggle if needed, or for general structure */
 	}
 	.site-branding {
-		flex-grow: 1;
+		flex-grow: 1; /* Allow branding to take space */
 		text-align: right; /* RTL: align branding to right */
 	}
 	.menu-toggle {
 		display: block;
-		order: 2;
+		order: 2; /* After branding, before nav */
 		margin-right: 0; /* Reset if it inherited from .main-navigation */
 		margin-left: 15px; /* RTL: space from edge */
 	}
-	.main-navigation {
-		order: 3;
-		width: 100%;
+	.main-navigation { /* Container for the ul menu */
+		order: 3; /* Nav is last in visual order */
+		width: 100%; /* Full width for mobile nav */
 	}
-	.main-navigation ul { /* Hidden mobile menu */
+	.main-navigation ul { /* The actual menu list, hidden by default on mobile */
 		display: none;
 		flex-direction: column;
 		width: 100%;
-		background-color: #005060;
-		position: absolute;
-		top: 100%;
-		right: 0; /* RTL */
-		left: 0;
+		background-color: #005060; /* Darker background for mobile menu */
+		position: absolute; /* Take out of flow for overlay effect */
+		top: 100%; /* Position below header */
+		right: 0; /* RTL: Mobile menu opens from the right */
+		left: 0; /* Cover full width */
 		z-index: 1000;
-		border-top: 1px solid #004050;
+		border-top: 1px solid #004050; /* Separator */
 	}
-	.main-navigation ul.toggled-on {
+	.main-navigation ul.toggled-on { /* This class would be toggled by JS to show the menu */
 		display: flex;
 	}
 	.main-navigation ul li {
-		margin-left: 0;
+		margin-left: 0; /* Full width list items */
 		width: 100%;
 	}
 	.main-navigation ul li a {
 		padding: 12px 15px;
-		border-bottom: 1px solid #006070;
+		border-bottom: 1px solid #006070; /* Separator for mobile menu items */
 	}
 	.main-navigation ul li:last-child a {
 		border-bottom: none;
 	}
 	.main-navigation ul ul { /* Mobile Sub-menu */
-		position: static;
-		background-color: #007080;
+		position: static; /* No absolute positioning for dropdowns in mobile view */
+		background-color: #007080; /* Slightly lighter for sub-menu */
 		width: 100%;
-		border-right: 3px solid #40E0D0; /* RTL */
+		border-right: 3px solid #40E0D0; /* RTL: Indicate sub-menu on the right */
 		border-left: none;
-		margin-right: 0;
-		padding-right: 0;
-		border-top: 1px solid #006070;
+		margin-right: 0; /* RTL */
+		padding-right: 0; /* RTL */
+		border-top: 1px solid #006070; /* Separator from parent */
 	}
 	.main-navigation ul ul li a {
-		padding-right: 25px; /* RTL */
+		padding-right: 25px; /* RTL: Indent sub-menu items from the right */
 		padding-left: 15px;
 	}
 	.header-search {
 		width: 100%;
 		margin-top: 10px;
-		order: 4;
+		order: 4; /* Search below nav */
 		margin-left: 0; /* Full width */
 	}
 	.header-search .search-field {
@@ -1175,12 +1170,12 @@ p.no-comments {
 	.header-cart, .header-auth {
 		margin-top: 10px;
 		width: 100%;
-		justify-content: space-around;
-		order: 5;
+		justify-content: space-around; /* Distribute cart/auth links */
+		order: 5; /* Cart/auth last */
 	}
 	.header-cart a, .header-auth a {
-		margin-left: 5px;
-		margin-right: 5px;
+		margin-left: 5px; /* RTL: minimal space */
+		margin-right: 5px; /* RTL: minimal space */
 	}
 }
 
@@ -1189,10 +1184,12 @@ p.no-comments {
 	.homepage-slider {
 		height: 300px;
 	}
-	.homepage-slider .slide-content h2 {
+	.homepage-slider .slide-content h2,
+	.homepage-slider .slide-content .slide-title { /* Target specific title class */
 		font-size: 2em;
 	}
-	.homepage-slider .slide-content p {
+	.homepage-slider .slide-content p,
+	.homepage-slider .slide-content .slide-description { /* Target specific description class */
 		font-size: 1em;
 	}
 	.homepage-slider .slider-prev,
@@ -1208,10 +1205,12 @@ p.no-comments {
 	.homepage-slider .slide-content {
 		padding: 15px 20px;
 	}
-	.homepage-slider .slide-content h2 {
+	.homepage-slider .slide-content h2,
+	.homepage-slider .slide-content .slide-title {
 		font-size: 1.6em;
 	}
-	.homepage-slider .slide-content p {
+	.homepage-slider .slide-content p,
+	.homepage-slider .slide-content .slide-description {
 		font-size: 0.9em;
 		margin-bottom: 15px;
 	}
@@ -1225,16 +1224,16 @@ p.no-comments {
 @media (max-width: 480px) {
 	.categories-container,
 	.products-container,
-	.woocommerce ul.products {
-		grid-template-columns: 1fr;
+	.woocommerce ul.products { /* Apply to WC grid too */
+		grid-template-columns: 1fr; /* Single column */
 	}
 	.category-item, .product-item, .woocommerce ul.products li.product {
-		padding: 10px;
+		padding: 10px; /* Reduce padding for smaller items */
 	}
 	.product-item h3,
 	.woocommerce ul.products li.product .woocommerce-loop-product__title {
-		font-size: 1em;
-		min-height: auto;
+		font-size: 1em; /* Adjust product titles */
+		min-height: auto; /* Allow natural height */
 	}
 	.category-image-placeholder {
 		height: 140px;
@@ -1246,18 +1245,19 @@ p.no-comments {
 
 /* --- 6.5 Content Sections Responsive --- */
 @media (max-width: 768px) {
-	.content-area {
+	.content-area { /* If using a two-column layout with sidebar */
 		width: 100%;
-		margin-right: 0;
+		/* float: none; -- if floats were used for layout */
+		margin-right: 0; /* Reset any LTR specific margins */
 	}
-	/* Example for sidebar if it existed:
+	/* Example for a sidebar if it existed:
 	.widget-area {
 		width: 100%;
-		margin-left: 0;
-		margin-top: 20px;
+		margin-left: 0; // Reset LTR specific margins
+		margin-top: 20px; // Add space when stacked
 	} */
 	article.post, article.page {
-		padding: 0; /* site-content handles padding */
+		padding: 0; /* Rely on .site-content padding */
 		margin-bottom: 2em;
 	}
 }
@@ -1265,7 +1265,7 @@ p.no-comments {
 /* --- 6.6 Footer Responsive --- */
 @media (max-width: 768px) {
 	.footer-widgets-container {
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Allow slightly smaller items before stacking */
 		gap: 20px;
 	}
 	.site-footer {
@@ -1274,7 +1274,7 @@ p.no-comments {
 }
 @media (max-width: 480px) {
 	.footer-widgets-container {
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr; /* Single column for footer items */
 	}
 	.footer-column {
 		margin-bottom: 20px;
@@ -1294,21 +1294,22 @@ p.no-comments {
 /* --- 6.7 WooCommerce Responsive --- */
 @media (max-width: 768px) {
 	.woocommerce ul.products {
-		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Adjust product grid for tablets */
 	}
 	.woocommerce-cart-form__contents .product-thumbnail img {
-		max-width: 60px;
+		max-width: 60px; /* Smaller images in cart on mobile */
 	}
 }
 @media (max-width: 480px) {
+	/* .woocommerce ul.products already handled by general grid media query for 1fr */
 	.woocommerce .quantity .qty {
-		width: 3em;
+		width: 3em; /* Narrow quantity input */
 	}
 	.woocommerce .cart_totals table th,
 	.woocommerce .cart_totals table td,
 	.woocommerce-checkout-review-order-table th,
 	.woocommerce-checkout-review-order-table td {
-		padding: 8px;
+		padding: 8px; /* Reduce padding in cart totals/checkout review */
 	}
 }
 

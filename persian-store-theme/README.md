@@ -53,8 +53,18 @@ This theme includes basic support and styling for WooCommerce. For full e-commer
 
 -   **Site Title & Tagline:** Can be set via `Appearance` -> `Customize` -> `Site Identity`.
 -   **Navigation Menu:** Manage menus via `Appearance` -> `Menus`. Ensure your primary menu is created and assigned to the 'Primary Menu' theme location.
+-   **Homepage Slider:**
+    -   To customize the homepage slider, navigate to `Appearance` -> `Slider Settings` in your WordPress admin dashboard.
+    -   You can configure up to 3 slides. For each slide, you can set:
+        -   **Image URL:** The full URL for the slide's background image. It's recommended to upload images to your WordPress Media Library and use the generated URL.
+        -   **Heading Text:** The main title for the slide.
+        -   **Description Text:** A short description or additional text for the slide. Basic HTML is allowed if entered carefully.
+        -   **Link URL:** A URL the slide will link to if the user clicks the "Learn More" button.
+        -   **Activate Slide:** A checkbox to enable or disable the display of this slide.
+    -   Remember to click "Save Slider Settings" to apply your changes.
+    -   **Note:** The slider will only display slides that are marked "active" and have an Image URL provided. If no slides are active or configured correctly, the slider section will not appear on the homepage.
 -   **Widgets:** The current footer is hardcoded with placeholder content. For dynamic footer content, you would typically register widget areas in `functions.php` and then manage them via `Appearance` -> `Widgets`. This can be a future enhancement.
--   **Homepage Content:** The homepage sections (slider, categories, featured products) are currently placeholders in `index.php`. For dynamic content, these sections would need to be implemented using WordPress features like Customizer options, custom fields, or by fetching actual product/category data.
+-   **Homepage Content (Other Sections):** The product categories and product listing sections on the homepage are currently placeholders in `index.php`. For dynamic content, these sections would need to be implemented by fetching actual product/category data using WooCommerce functions or other WordPress methods.
 
 ## License
 
