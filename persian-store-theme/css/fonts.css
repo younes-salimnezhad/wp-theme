@@ -1,0 +1,39 @@
+/**
+ * Font Definitions for Persian Store Theme
+ *
+ * This file contains @font-face rules for loading custom fonts.
+ *
+ * @package Persian_Store_Theme
+ */
+
+@font-face {
+	font-family: 'Vazirmatn';
+	src: url('../fonts/Vazirmatn-VariableFont_wght.woff2') format('woff2-variations'), /* Modern Browsers supporting variable fonts */
+		 url('../fonts/Vazirmatn-VariableFont_wght.woff2') format('woff2'); /* Fallback for older browsers that support woff2 but not variations */
+	font-weight: 100 900; /* Vazirmatn is a variable font supporting weights from 100 to 900 */
+	font-style: normal;
+	font-display: swap; /* Ensures text remains visible using a fallback font while this font is loading */
+}
+
+/*
+Optional: If you were to use non-variable versions or other specific weights/styles,
+you would define them in separate @font-face rules. For example:
+
+@font-face {
+	font-family: 'Vazirmatn';
+	src: url('../fonts/Vazirmatn-Regular.woff2') format('woff2');
+	font-weight: 400; // Explicitly 'normal' or 400
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Vazirmatn';
+	src: url('../fonts/Vazirmatn-Bold.woff2') format('woff2');
+	font-weight: 700; // Explicitly 'bold' or 700
+	font-style: normal;
+	font-display: swap;
+}
+*/
+
+/* Ensure single blank line at end of file */
